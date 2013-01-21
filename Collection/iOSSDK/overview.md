@@ -1,5 +1,7 @@
 # Google Analytics SDK for iOS v2 (Beta) - Overview
 
+Source : https://developers.google.com/analytics/devguides/collection/ios/v2/
+
 Google Analytics SDK for iOSはアプリからユーザーエンゲージメントデータを集める作業を簡単にします.
 このドキュメントではシングルプロパティIDとEasyTrackerを用いて、アプリの計測を始めるガイドと、SDKに関する概要を提供します.
 

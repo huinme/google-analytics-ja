@@ -1,5 +1,7 @@
 # Custom Dimensions & Metrics - iOS SDK
 
+Source : https://developers.google.com/analytics/devguides/collection/ios/v2/customdimsmets
+
 ## Contents
 
 - Overview
