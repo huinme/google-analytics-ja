@@ -13,7 +13,7 @@ Unofficial translated document of Google Analytics(https://developers.google.com
             - Reference
         - Custom Dimensions and Metrics
             - Overview
-            - Reference
+            - [Reference](https://github.com/kshuin/google-analytics-ja/blob/master/Platform/Features/CustomDimensionsAndMetrics/reference.md)
         - Social Data
             - Overview
             - Social Activities
@@ -27,12 +27,12 @@ Unofficial translated document of Google Analytics(https://developers.google.com
     - Web Tracking
     - Android SDK
     - iOS SDK
-        - Overview
+        - [Overview](https://github.com/kshuin/google-analytics-ja/blob/master/Collection/iOSSDK/overview.md)
         - Dev Guide
             - Advanced Configuration
             - Campaigns
             - Crashes and Exceptions
-            - Custom Dimensions & Metrics
+            - [Custom Dimensions & Metrics](https://github.com/kshuin/google-analytics-ja/blob/master/Collection/iOSSDK/DevGuide/CustomDimensionsAndMetrics.md)
             - ECommerce
             - Events
             - Screens
