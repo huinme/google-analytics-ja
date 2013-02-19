@@ -36,7 +36,7 @@ Unofficial translated document of Google Analytics(https://developers.google.com
             - ECommerce
             - Events
             - Screens
-            - [Sessions](/Collection/iOSSDK/Sessions.md)
+            - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md)
             - Social Interactions
             - User Timings
         - Reference
