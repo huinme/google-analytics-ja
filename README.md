@@ -1,8 +1,10 @@
 Google Analytics (ja)
 ===================
 
-Unofficial translated document of Google Analytics(https://developers.google.com/analytics/)
+このリポジトリは、Google Analytics(https://developers.google.com/analytics/)の邦訳ドキュメントです.
+非公式の邦訳のため、誤訳や古い情報の可能性があります.
 
+This repository is an unofficial translated document of Google Analytics(https://developers.google.com/analytics/)
 
 ## Table of Contents
 
