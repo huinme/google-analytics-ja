@@ -32,7 +32,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
     - iOS SDK
         - [Overview](/Collection/iOSSDK/overview.md)
         - Dev Guide
-            - Advanced Configuration
+            - [Advanced Configuration](/Collection/iOSSDK/DevGuide/AdvancedConfiguration.md)
             - Campaigns
             - Crashes and Exceptions
             - [Custom Dimensions & Metrics](/Collection/iOSSDK/DevGuide/CustomDimensionsAndMetrics.md)
