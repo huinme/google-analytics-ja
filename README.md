@@ -32,13 +32,13 @@ This repository is an unofficial translated document of Google Analytics(https:/
     - iOS SDK
         - [Overview](/Collection/iOSSDK/overview.md)
         - Dev Guide
-            - [Advanced Configuration](/Collection/iOSSDK/DevGuide/AdvancedConfiguration.md)
+            - Advanced Configuration
             - Campaigns
             - Crashes and Exceptions
             - [Custom Dimensions & Metrics](/Collection/iOSSDK/DevGuide/CustomDimensionsAndMetrics.md)
             - ECommerce
-            - Events
-            - Screens
+            - [Events](/Collection/iOSSDK/DevGuide/EventTracking.md)
+            - [Screens](/Collection/iOSSDK/DevGuide/Screens.md)
             - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md)
             - Social Interactions
             - User Timings
