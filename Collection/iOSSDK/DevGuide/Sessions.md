@@ -1,5 +1,7 @@
 # Sessions - iOS SDK
 
+Source : [https://developers.google.com/analytics/devguides/collection/ios/v2/sessions?hl=ja](https://developers.google.com/analytics/devguides/collection/ios/v2/sessions?hl=ja)
+
 - - -
 
 このドキュメントではGoogleモバイルアプリ解析とGoogle Analytics SDK for iOS v2のセッションにおける高レベルの概要と、
@@ -74,3 +76,7 @@ Google Analytics SDK for iOSは自動のセッション管理を提供してい�
                        withValue:nil]; // First activity of new session
 }
 ```
+
+- - - 
+
+Last updated 1月 9, 2013
