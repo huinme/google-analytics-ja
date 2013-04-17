@@ -1,10 +1,12 @@
 # Ecommerce Tracking - iOS SDK
 
+Source : [https://developers.google.com/analytics/devguides/collection/ios/v2/ecommerce?hl=ja](https://developers.google.com/analytics/devguides/collection/ios/v2/ecommerce?hl=ja)
+
 このドキュメントでは、Google Analytics SDK for iOS v2を利用してアプリ内購入および収益を計測する方法について説明しています.
 
-- 概要
-- 実装
-    - 通貨単位
+- [概要](#overview)
+- [実装](#implementation)
+    - [通貨単位](#currency-type)
 
 ## <a name="overview"></a>概要
 
