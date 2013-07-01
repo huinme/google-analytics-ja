@@ -2,14 +2,14 @@
 
 このドキュメントでは、Google Analytics SDK for iOS v2のいくつかの発展的な機能についての概要を説明しています.
 
-- Overview
-- Using Multiple Trackers
-    - Default Tracker
-- Sampling
-- App-level Opt Out
-- Testing and Debugging
+- [Overview](#overview)
+- [Using Multiple Trackers](#using-multiple-trackers)
+    - [Default Tracker](#default-tracker)
+- [Sampling](#sampling)
+- [App-level Opt Out](#app-level-opt-out)
+- [Testing and Debugging](#testing-and-debugging)
 
-## Overview
+## <a name="overview"></a>Overview
 
 Google Analytics SDK for iOS はグローバルな実装状態の管理と、
 Google Analyticsサーバへのデータ送信について、
@@ -18,7 +18,7 @@ Google Analyticsサーバへのデータ送信について、
 - **GAI** - GAITrackerオブジェクトやアプリレベルのオプトアウト設定や設定ディスパッチなどのアプリの実装状態をハンドルするシングルトンクラスです.
 - **GAITracker** - Google Analyticsへデータを送信するクラスです. ユニークなプロパティIDを用いて複数のトラッカーをインスタン化することができます.
 
-## Using Multiple Trackers
+## <a name="using-multiple-trackers"></a>Using Multiple Trackers
 
 SDKのバージョン2から、ユニークなトラッキングIDを利用することで、一つの実装の中で複数のトラッカーを利用することができるようになりました。
 すべてのトラッカーは GAI シングルトンを通じてグローバルな状態を共有します.
@@ -60,7 +60,7 @@ Google Analyticsにデータを送信する際に一つのトラッカーのみ�
 
 参考までに、自動のスクリーン計測では特に GAITrackedViewController の tracker プロパティに設定されているトラッカーを利用します. 例外処理計測では GAI が保持するデフォルトのトラッカーを利用します.
 
-### Default Tracker 
+### <a name="default-tracker"></a>Default Tracker 
 
 実装において複数のトラッカーが利用可能なのに対して、
 グローバルいは１つのデフォルトトラッカーが存在します.
@@ -83,7 +83,7 @@ id newTracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-NEW-TRACKING-ID
 [GAI sharedInstance].defaultTracker = newTracker;
 ```
 
-## Sampling
+## <a name="sampling"></a>Sampling
 
 Google Analyticsへ送信するヒットの数を制限するために、
 クライアントサイドサンプリングを有効にすることができます.
@@ -105,7 +105,7 @@ Google Analyticsへ送信するヒットの数を制限するために、
 > 異なるバージョンのデータを分割するために
 > [プロファイルフィルター](http://support.google.com/analytics/bin/answer.py?hl=en&answer=1033162)からアプリのバージョンをディメンションとして設定してください。
 
-## App-level Opt Out
+## <a name="app-level-opt-out"></a>App-level Opt Out
 
 アプリ全体を通してGoogle Analyticsを無効化するために、
 app-level opt out フラグを利用することができます.
@@ -128,7 +128,7 @@ app-level opt outを設定するには以下のようにします.
 [GAI sharedInstance].setOptOut = YES;
 ```
 
-## Testing and Debugging
+## <a name="testing-and-debugging"></a>Testing and Debugging
 
 Google Analytics SDK for iOS ではデバッグモードを用意してあります.
 デバッグモードでは、どんなデータがGoogle Analyticsに送信されるのかをログに

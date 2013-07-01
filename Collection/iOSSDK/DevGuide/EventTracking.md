@@ -4,10 +4,10 @@ Source : [https://developers.google.com/analytics/devguides/collection/ios/v2/ev
 
 この記事では、Google Analytics SDK for iOS v2を利用してアプリ内でどのようにイベントを計測するのかについて説明します.
 
-- オーバービュー
-- 実装方法
+- [オーバービュー](#overview)
+- [実装方法](#implementation)
 
-## オーバービュー
+## <a name="overview"></a>オーバービュー
 
 イベントは、ボタンの押下やゲームのあるアイテムの使用など、
 アプリ内のインタラクティブなコンポーネントとユーザーのインタラクションについてデータを収集するのに有効な手段です。
@@ -19,7 +19,7 @@ Source : [https://developers.google.com/analytics/devguides/collection/ios/v2/ev
 - NSString ラベル(Label)
 - NSNumber (Optional)バリュー(Value), 64bit整数値
 
-## 実装
+## <a name="implementation"></a>実装方法
 
 イベントを送信するには、sendEventWithCategory:withAction:withLabel:withValue: メソッドを読んで下さい.
 例えば、ボタンの押下は以下のコードで計測することができます.
