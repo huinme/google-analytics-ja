@@ -30,30 +30,29 @@ This repository is an unofficial translated document of Google Analytics(https:/
     - Web Tracking
     - Android SDK
     - iOS SDK
-        - [Overview](/Collection/iOSSDK/overview.md)
+        - [Overview](/Collection/iOSSDK/Overview.md)
         - Dev Guide
-            - [Advanced Configuration](/Collection/iOSSDK/DevGuide/AdvancedConfiguration.md)
-            - [Campaigns](/Collection/iOSSDK/DevGuide/CampaignTracking.md)
-            - [Crashes and Exceptions](/Collection/iOSSDK/DevGuide/CrashesAndExceptions.md)
-            - [Custom Dimensions & Metrics](/Collection/iOSSDK/DevGuide/CustomDimensionsAndMetrics.md)
-            - [Dispatch](/Collection/iOSSDK/DevGuide/Dispatching.md)
-            - [ECommerce](/Collection/iOSSDK/DevGuide/ECommerceTracking.md)
-            - [Events](/Collection/iOSSDK/DevGuide/EventTracking.md)
-            - [Screens](/Collection/iOSSDK/DevGuide/Screens.md)
-            - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md)
-            - [Social Interactions](/Collection/iOSSDK/DevGuide/SocialInteractions.md)
-            - [User Timings](/Collection/iOSSDK/DevGuide/UserTimings.md)
+            - [Advanced Configuration]()
+            - [Campaigns]()
+            - [Crashes and Exceptions]()
+            - [Custom Dimensions & Metrics]()
+            - [Dispatch]()
+            - [ECommerce]()
+            - [Events]()
+            - [Screens]()
+            - [Sessions]()
+            - [Social Interactions]()
+            - [User Timings]()
         - Reference
             - Limit and Quotas
         - Resources
             - Changelog
             - Downloads
-            - Migration Guide(v1 - v2)
-        - V1 (Legacy)
-            - Dev Guide
-            - Resources
+            - [v3 Migration Guide](/Collection/iOSSDK/Resources/v3-Migration-Guide.md)
     - Measurement Protocol
     - Legacy Libraries
-- Configuration
-- Reporting
-- Solutions
+- Configuration APIs
+- Reporting APIs
+- Articles & Solutions
+- Community & Updates
+- Developer Program
