@@ -48,7 +48,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
         - Resources
             - Changelog
             - Downloads
-            - [v3 Migration Guide](/Collection/iOSSDK/Resources/v3-Migration-Guide.md)
+            - [v3 Migration Guide](Collection/iOSSDK/Resources/v3-Migraion-Guide.md)
     - Measurement Protocol
     - Legacy Libraries
 - Configuration APIs
