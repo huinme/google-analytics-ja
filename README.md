@@ -30,7 +30,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
     - Web Tracking
     - Android SDK
     - iOS SDK
-        - [Overview](./Collection/iOSSDK/Overview.md)
+        - [Overview](/Collection/iOSSDK/overview.md)
         - Dev Guide
             - [Advanced Configuration]()
             - [Campaigns]()
