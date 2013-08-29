@@ -46,8 +46,8 @@ This repository is an unofficial translated document of Google Analytics(https:/
         - Reference
             - Limit and Quotas
         - Resources
-            - Changelog
-            - Downloads
+            - [Changelog](Collection/iOSSDK/Resources/Changelog.md)
+            - [Downloads](Collection/iOSSDK/Resources/Downloads.md)
             - [v3 Migration Guide](Collection/iOSSDK/Resources/v3-Migraion-Guide.md)
     - Measurement Protocol
     - Legacy Libraries
