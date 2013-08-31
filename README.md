@@ -40,7 +40,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
             - [ECommerce](/Collection/iOSSDK/DevGuide/ECommerceTracking.md)
             - [Events](/Collection/iOSSDK/DevGuide/EventTracking.md)
             - [Screens](/Collection/iOSSDK/DevGuide/Screens.md)
-            - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md****)
+            - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md)
             - [Social Interactions]()
             - [User Timings]()
         - Reference
