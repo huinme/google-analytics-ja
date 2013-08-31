@@ -2,6 +2,9 @@
 
 > Source : [https://developers.google.com/analytics/devguides/collection/ios/v3/advanced](https://developers.google.com/analytics/devguides/collection/ios/v3/advanced)
 
+- - - 
+
+
 このドキュメントでは、Google Analytics SDK for iOS v3のいくつかの発展的な機能についての概要を説明しています.
 
 - [概要](#overview)
@@ -337,8 +340,6 @@ static int const kGaDispatchPeriod = 30;
         send:[[GAIDictionaryBuilder createAppView] build]];
 }
 ```
-
-
 
 - - -
 

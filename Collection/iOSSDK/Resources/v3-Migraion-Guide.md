@@ -2,6 +2,9 @@
 
 > Source : [https://developers.google.com/analytics/devguides/collection/ios/v3/migration](https://developers.google.com/analytics/devguides/collection/ios/v3/migration)
 
+- - -
+
+
 > Google Analytics を初めて利用する開発者には [バージョン3の利用開始](https://developers.google.com/analytics/devguides/collection/ios/v3/) があります.
 
 このガイドでは、Google Analytics SDK for iOS をv3にアップグレードする方法について説明しています.

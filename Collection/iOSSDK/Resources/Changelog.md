@@ -2,6 +2,9 @@
 
 > Source : [https://developers.google.com/analytics/devguides/collection/ios/changelog](https://developers.google.com/analytics/devguides/collection/ios/changelog)
 
+- - -
+
+
 このページではGoogle Analytics SDK for iOSに加えられた変更をまとめています. 
 最新の情報を得るためにこのページを定期的に確認することをおすすめします.
 また、下の [Subscribe](#subscribe-to-related-changelgos) セクションにリストされたフィードから変更点を取得することができます.

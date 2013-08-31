@@ -2,6 +2,8 @@
 
 > Source : [https://developers.google.com/analytics/devguides/collection/ios/resources](https://developers.google.com/analytics/devguides/collection/ios/resources)
 
+- - -
+
 Google Analytics Services SDKは Google Analytics および Google Tag Manager for Mobile ライブラリの両方を含んでいます.
 
 - Google Mobile App Analytics for Androidの利用を開始するには、[Androidの利用開始](https://developers.google.com/analytics/devguides/collection/ios/v3)を参照して下さい.
