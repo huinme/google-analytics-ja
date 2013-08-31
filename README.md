@@ -41,7 +41,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
             - [Events](/Collection/iOSSDK/DevGuide/EventTracking.md)
             - [Screens](/Collection/iOSSDK/DevGuide/Screens.md)
             - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md)
-            - [Social Interactions]()
+            - [Social Interactions](/Collection/iOSSDK/DevGuide/SocialInteractions.md)
             - [User Timings]()
         - Reference
             - Limit and Quotas
