@@ -1,15 +1,15 @@
-# Screen Tracking - iOS SDK
+# Screen - iOS SDK
 
-Source : [https://developers.google.com/analytics/devguides/collection/ios/v2/screens?hl=ja](https://developers.google.com/analytics/devguides/collection/ios/v2/screens?hl=ja)
+> Source : [https://developers.google.com/analytics/devguides/collection/ios/v3/screens](https://developers.google.com/analytics/devguides/collection/ios/v3/screens)
 
 - - -
 
-このドキュメントではスクリーン計測の概要と、Google Analytics SDK for iOS v2を利用してどのようにスクリーンビューを計測するかについて説明しています.
+このドキュメントではスクリーンおよび、Google Analytics SDK for iOS v3を利用してスクリーン計測を行う方法について説明しています.
 
 - [オーバービュー](#overview)
-- [実装](#implementation)
-- [自動のスクリーン計測](#automatic-screen-measurement)
 - [手動のスクリーン計測](#manual-screen-measurement)
+- [自動のスクリーン計測](#automatic-screen-measurement)
+
     
 ## <a name="overview"></a>オーバービュー
 
@@ -18,65 +18,80 @@ Web解析における同様のコンセプトはページビューです.
 スクリーンビューの計測によって、どのコンテンツがユーザーに最も見られているかを知り、
 また異なるコンテンツ間をどのように遷移しているのかを知ることができるようになります.
 
-スクリーンビューは、１つの文字列によるフィールドで構成されています.
-このフィールドはGoogle Analytics レポートでスクリーン名として利用されます.
+スクリーンビューは、Google Analytics レポートでスクリーン名として利用される1つの文字列フィールドで構成されています.
+
+Field Name | Tracker Field | Type | Required | Description
+--- | --- | --- | --- | ---
+Screen Name | kGAIScreenName | NSString | Yes | アプリケーションスクリーンの名前
 
 スクリーンビューのデータは主に、以下のレポートで利用されます.
 
 - スクリーン レポート
 - エンゲージメントフロー
-- ゴールフロー
-
-## <a name="implementation"></a>実装
-
-以降の章では手動および自動でのスクリーン計測をどのように実装するかについて説明します.
-自動スクリーン計測の利用によって、アプリ内の全てのビューにわたってスクリーン計測を素早く実装することができます.
-また、手動のスクリーン計測では、追加のスクリーンビューをGoogle Analyticsに送信したい場合に利用することができます.
-
-## <a name="automatic-screen-measurement"></a>自動のスクリーン計測
-
-GAITrackedViewControllerクラスを利用することで、自動でスクリーンビューを計測することができます.
-各ビューコントローラをGAITrackedViewControllerの継承として作成して下さい。
-このクラスはUIViewControllerを拡張した便利なクラスであり、
-レポート内で各ビューコントローラのスクリーン名を利用可能にします.
-
-例えば、"About"ビューの計測をしたい場合、ビューコントローラのヘッダーは以下のようになります.
-
-```
-@interface AboutViewController : UIViewController
-```
-
-これを以下のように変更して下さい.
-
-```
-#import "GAITrackedViewController.h"
-
-@interface AboutViewController : GAITrackedViewController
-```
-
-さらにGoogle Analyticsレポートで利用するために名前を設定する必要があります.
-設定に適した場所は、もしあればビューコントローラの初期化メソッドの中になります。
-あるいは viewDidLoad メソッドで
-
-```
-- (void)viewDidLoad{
-    [super viewDidLoad];
-    self.trackedViewName = @"About Screen";
-}
-```
-
-と記述してください.
-sendView: メソッドが呼ばれる前に trackedViewName が設定される限り、自動のスクリーン計測が発生します.
-ビューが表示されるたびに、 スクリーン名を伴ってsendView: の呼び出しが行われます.
 
 ## <a name="manual-screen-measurement"></a>手動のスクリーン計測
 
-手動でスクリーンビューを送信したい場合には、 以下の例のように sendView: を呼んで下さい.
+手動でスクリーンビューを送信したい場合には、 
+トラッカーのスクリーンフィールドに値をセットし、ヒットの送信を行なってください.
+
 
 ```
-[tracker sendView:@"Home Screen"];
+// May return nil if a tracker has not already been initialized with a
+// property ID.
+id tracker = [[GAI sharedInstance] defaultTracker];
+
+// This screen name value will remain set on the tracker and sent with
+// hits until it is set to a new value or to nil.
+[tracker set:kGAIScreenName
+       value:@"Home Screen"];
+
+[tracker send:[[GAIDictionaryBuilder createAppView] build]];
+```
+
+
+## <a name="automatic-screen-measurement"></a>自動のスクリーン計測
+
+`GAITrackedViewController`クラスを利用することで、自動でスクリーンビューを計測することができます.
+各ビューコントローラを`GAITrackedViewController`を継承して作成し、
+`screenName`という名前のプロパティを追加してください.
+このプロパティはスクリーン名フィールドにセットするために利用されます.
+
+```
+//
+// MyViewController.h
+// An example of using automatic screen tracking in a ViewController.
+//
+#import "GAITrackedViewController.h"
+
+// Extend the provided GAITrackedViewController for automatic screen
+// measurement.
+@interface AboutViewController : GAITrackedViewController
+
+@end
+
+
+//
+// MyViewController.m
+//
+#import "MyViewController.h"
+#import "AppDelegate.h"
+
+@implementation MyViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // Set screen name.
+    self.screenName = @"Home Screen";
+}
+
+// Rest of the ViewController implementation.
+@end
 ```
 
 - - -
 
-Last updated 1月 9, 2013.
+他の断りのない限り、このページのコンテンツは [Creative Commons Attribution 3.0](http://creativecommons.org/licenses/by/3.0/) ライセンスの下で提供されています. また、サンプルコードは、[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)の下で提供されています. 詳細については、[サイトポリシー](https://developers.google.com/site-policies)を参照してください.
+
+最終更新日 2013年8月16日.
+

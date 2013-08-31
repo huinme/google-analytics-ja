@@ -33,7 +33,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
         - [Overview](/Collection/iOSSDK/overview.md)
         - Dev Guide
             - [Advanced Configuration](/Collection/iOSSDK/DevGuide/AdvancedConfiguration.md)
-            - [Campaigns](/Collection/iOSSDK/DevGuide/CampaignTracking.md)
+            - [Campaigns](/Collection/iOSSDK/DevGuide/CampaignMeasurement.md)
             - [Crashes and Exceptions](/Collection/iOSSDK/DevGuide/CrashesAndExceptions.md)
             - [Custom Dimensions & Metrics](/Collection/iOSSDK/DevGuide/CustomDimensionsAndMetrics.md)
             - [Dispatch](/Collection/iOSSDK/DevGuide/Dispatching.md)
@@ -44,16 +44,15 @@ This repository is an unofficial translated document of Google Analytics(https:/
             - [Social Interactions](/Collection/iOSSDK/DevGuide/SocialInteractions.md)
             - [User Timings](/Collection/iOSSDK/DevGuide/UserTimings.md)
         - Reference
-            - Limit and Quotas
+            - [Limit and Quotas](/Collection/iOSSDK/Reference/LimitsAndQuotas.md)
         - Resources
-            - Changelog
-            - Downloads
-            - Migration Guide(v1 - v2)
-        - V1 (Legacy)
-            - Dev Guide
-            - Resources
+            - [Changelog](Collection/iOSSDK/Resources/Changelog.md)
+            - [Downloads](Collection/iOSSDK/Resources/Downloads.md)
+            - [v3 Migration Guide](Collection/iOSSDK/Resources/v3-Migraion-Guide.md)
     - Measurement Protocol
     - Legacy Libraries
-- Configuration
-- Reporting
-- Solutions
+- Configuration APIs
+- Reporting APIs
+- Articles & Solutions
+- Community & Updates
+- Developer Program
