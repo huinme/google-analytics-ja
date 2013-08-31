@@ -1,61 +1,66 @@
 # Dispatching - iOS SDK
 
-このドキュメントでは、Google Analytics SDK for iOS v2を利用してどのようにGoogle Analyticsのデータをディスパッチ可能かについて説明しています.
+> Source : [https://developers.google.com/analytics/devguides/collection/ios/v3/dispatch](https://developers.google.com/analytics/devguides/collection/ios/v3/dispatch)
 
-- [オーバービュー](#overview)
+- - -
+
+
+> **Note:** このドキュメントの中で参照されているローカルディスパッティメソッドは、将来Google Playサービスの一部としてGoogle Analyticsが利用可能になるために、非推奨に指定されています.
+> ローカルディスパッチメソッドは、Googleエクスペリエンスではないデバイスでは利用可能です.
+
+このドキュメントでは、Google Analytics SDK for iOS v3を利用して
+どのようにGoogle Analyticsのディスパッチされたデータを管理するかについて説明しています.
+
+- [概要](#overview)
 - [定期的なディスパッチ](#periodic-dispatch)
 - [手動のディスパッチ](#manual-dispatch)
 
-## <a name="overview"></a>オーバービュー
+## <a name="overview"></a>概要
 
-Google Analytics SDK for iOSでは、スクリーンビューやイベントなどの収集されたデータはGoogle Analyticsのサーバーに送信される間にローカルキューに保存されます.
-それらのデータのピース(ここでは"hits"と呼びます)がSDKからGoogle Analyticsに送信されるプロセスはディスパッチとして知られています.
+Google Analytics SDk for iOSによって集められたデータは、
+別スレッドでGoogle Analyticsへとディスパッチされるまでローカルに保存されます.
 
-ディスパッチはモバイルコレクションライブラリに固有のものであり、不安定なネットワークやバッテリーの制約といった困難を緩和するために設計されています.
-
-ディスパッチには２種類存在します.
-
-- 定期的なディスパッチ : あなたが指定した期間で自動的にhitsをディスパッチします.
-- 手動ディスパッチ : 手動でのhitsのディスパッチは、例えば既にHTTPコネクションが存在する場合には、便利です.
-
-このドキュメントの残りの部分では、それぞれのタイプのディスパッチのより深い部分についてと、それらをアプリにどう実装すべきかについて説明します.
-
->**NOTE:** データは必ずディスパッチされ、各プロファイルで設定されたタイムゾーンにおいて翌日の4 a.m.までに受信されなければなりません. その後に受信されたいかなるデータもレポートには表示されません.
+データは、各プロファイルのローカルタイムゾーン設定で、**翌日の午前4時までに**ディスパッチされて受信されている必要があります.
+その後に受信されたいかなるデータもレポートには表示されません.
+例えば、あるヒットが午後11時59分にローカルキューに追加されたとすると、
+午前3時59分、つまり4時間以内にディスパッチされなければなりません.
+また一方では、午前12時にキューに追加されたヒットがレポートに表示されるには、
+28時間位内つまり翌日の午前3時59分までにディスパッチされなければなりません.
 
 ## <a name="periodic-dispatch"></a>定期的なディスパッチ
 
-アプリが収集したGAデータは、キューに追加され定期的にGoogle Analyticsに送信されます. 定期的なディスパッチはアプリがフォアグラウンドとバックグラウンドどちらの場合にも発生します.
-
-デフォルトのディスパッチ間隔は2分です.
-`setDispatchPeriod:(NSTimeInterval)`を呼ぶことで、
-以下の例のように自身で間隔を設定することもできます.
+デフォルトでは、データはGoogle Analytics SDKから2分ごとにディパッチされます.
 
 ```
-[[GAI sharedInstance] setDispatchPeriod:60];
+// Set the dispatch period in seconds.
+[GAI sharedInstance].dispatchPeriod = 30;
 ```
 
-マイナスの値を設定することで定期的なディスパッチを無効にすることもできます. その場合には、データをGoogle Analyticsに送信するために手動ディスパッチを利用する必要があります.
-また、ディスパッチ間隔に0を指定した場合には、ネットワークコネクションが利用可能な場合に各hitは即座に送信されます.
+マイナスの値を設定することで定期的なディスパッチを無効にすることもできます. 
+その場合には、データをGoogle Analyticsに送信するために[手動ディスパッチ](#manual-dispatch)を行う必要があります.
 
-いったん全てのでhitsがディスパッチされると、
-定期ディスパッチはパワーセーブモードに入り、
-別の送信が呼び出されるまで無効になります.
+```
+// Disable periodic dispatch by setting dispatch period to a value less than 1.
+[GAI sharedInstance].dispatchPeriod = 0;
+```
 
-もしユーザーがネットワークアクセスを失ったり、ディスパッチされていないhitsが残っているのにアプリを終了した場合には、それらのhitsはローカルストレージに保存されます. それらのhitsは次回アプリ起動中にディスパッチが行われるときに合わせてディスパッチされます.
+もしユーザーがネットワークアクセスを失ったり、
+ディスパッチされていないhitsが残っているのにアプリを終了した場合には、
+それらのhitsはローカルストレージに保存されます. 
+それらのhitsは次回アプリ起動中にディスパッチが行われるときに合わせてディスパッチされます.
 
 ## <a name="manual-dispatch"></a>手動のディスパッチ
 
-信頼出来る定期ディスパッチとは別に、手動でhitsをディスパッチしたい時があります.
-例えば、オーバーヘッドを減らすために、アプリケーションが生成した他のHTTPリクエストとまとめてしまいたい場合です.
-
-hitsは以下のように`dispatch`を呼び出すことで手動でディスパッチすることができます.
+手動で、ヒットのディスパッチを行う場合、
+例えばデバイスの電波が他のデータを送信するのに利用されていることを知っている場合には以下のようにします.
 
 ```
-[[GAI sharedTracker] dispatch];
+[[GAI sharedInstance] dispatch];
 ```
 
 - - -
 
-[Noted](https://developers.google.com/readme/policies?hl=ja)を覗いて、このページの内容は[Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/)の下で提供されています. またコードサンプルは [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) の下で提供されています
+他の断りのない限り、このページのコンテンツは [Creative Commons Attribution 3.0](http://creativecommons.org/licenses/by/3.0/) ライセンスの下で提供されています. また、サンプルコードは、[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)の下で提供されています. 詳細については、[サイトポリシー](https://developers.google.com/site-policies)を参照してください.
 
- Last updated 1月 9, 2013.
+最終更新日 2013年8月16日.
+
