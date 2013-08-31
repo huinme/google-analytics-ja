@@ -42,7 +42,7 @@ This repository is an unofficial translated document of Google Analytics(https:/
             - [Screens](/Collection/iOSSDK/DevGuide/Screens.md)
             - [Sessions](/Collection/iOSSDK/DevGuide/Sessions.md)
             - [Social Interactions](/Collection/iOSSDK/DevGuide/SocialInteractions.md)
-            - [User Timings]()
+            - [User Timings](/Collection/iOSSDK/DevGuide/UserTimings.md)
         - Reference
             - Limit and Quotas
         - Resources
